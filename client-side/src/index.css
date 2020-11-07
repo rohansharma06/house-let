@@ -11,3 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav-heading{
+  font-size: 25px;
+  font-weight: bolder;
+}
+.landing-container{
+  position: relative;
+  margin-top: 2px;
+  background-image: url('https://images.pexels.com/photos/242827/pexels-photo-242827.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 90vh;
+}
+.description{
+  color: white;
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.heading{
+  display: block;
+  font-size: 3em;
+  font-weight: bolder;
+}
+.heading-two{
+  display: block;
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+/* ---- common css */
+.bg-black{
+  background-color: black;
+}
+.text-white{
+  color: white;
+}
