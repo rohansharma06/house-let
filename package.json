@@ -1,0 +1,15 @@
+{
+  "name": "renting-website",
+  "version": "1.0.0",
+  "description": "\"A place from where user can find their dream property\" ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "\"Rohan Sharma\"",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
