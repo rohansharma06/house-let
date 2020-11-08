@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { model } = require('../config/mongoose');
 
 //---schema
 const sellerSchema = new mongoose.Schema(

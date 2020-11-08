@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link,Redirect } from 'react-router-dom';
 
 class landing extends Component {
     render() {
@@ -9,8 +8,8 @@ class landing extends Component {
                     <span className="heading">House Let</span>
                     <span className="heading-two">One Stop for buy/sell your House</span>
                     <div className="button">
-                        <button type='button' className="btn btn-primary m-2 mt-5 btn-lg">Seller</button>
-                        <button  type='button' className="btn btn-secondary m-2 mt-5 btn-lg">Buyer</button>
+                        <a href='/admin/login' type='button' className="btn btn-primary m-2 mt-5 btn-lg">Seller</a>
+                        <a type='button' className="btn btn-secondary m-2 mt-5 btn-lg">Buyer</a>
                     </div>
                 </div>
             </div>

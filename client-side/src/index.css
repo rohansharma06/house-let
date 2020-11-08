@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #7b7777;
 }
 
 code {
@@ -47,6 +48,8 @@ code {
   font-weight: bolder;
 }
 
+
+
 /* ---- common css */
 .bg-black{
   background-color: black;
@@ -54,3 +57,4 @@ code {
 .text-white{
   color: white;
 }
+
