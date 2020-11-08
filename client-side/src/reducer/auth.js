@@ -9,10 +9,11 @@ import{
 } from '../Action/actionType';
 
 const initialAuthState = {
-    id: null,
+    user: {},
     error: null,
     isLoggedin: false,
     inProgress: false,
+    isSignup: false,
 };
 
 export default function auth(state = initialAuthState, action) {
@@ -24,11 +25,17 @@ export default function auth(state = initialAuthState, action) {
           inProgress: true,
         };
       case ADMIN_LOGIN_SUCCESS:
-      case ADMIN_SIGNUP_SUCCESS:
         return {
           ...state,
-          id: action.user.id,
           isLoggedin: true,
+          inProgress: false,
+          error: null,
+          user: action.user,
+        };
+        case ADMIN_SIGNUP_SUCCESS:
+        return {
+          ...state,
+          isSignup:true,
           inProgress: false,
           error: null,
         };

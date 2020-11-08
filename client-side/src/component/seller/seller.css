@@ -62,3 +62,14 @@
     background-color: #f8d7da;
     border-color: #f5c6cb;
   }
+
+  /* --- propertied */
+  .add-property{
+    position: absolute;
+    right: 200px;
+  }
+  .display-properties{
+    position: relative;
+    top: 40px;
+    padding: 5px 10px 10px 10px;
+  }

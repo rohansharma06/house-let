@@ -1,4 +1,5 @@
 const Seller = require('../models/seller');
+const jwt = require("jsonwebtoken");
 const bcrypt = require('bcryptjs');
 
 module.exports.register = async function(req,res){
@@ -8,7 +9,12 @@ module.exports.register = async function(req,res){
             return res.status(404).json({
                 message: "Enter valid text"
             });
-        }else {
+        }else if(req.body.password != req.body.confirmPassword){
+            return res.status(404).json({
+                message: "Pasword and confirm does't match!"
+            });
+        }
+        else {
             let seller = await Seller.findOne({email: req.body.email});
             if(!seller){
                 let salt = await bcrypt.genSalt(10);
@@ -19,11 +25,10 @@ module.exports.register = async function(req,res){
                     password: hash
                 });
                 newSeller.save();
-                console.log('newseller',newSeller);
+                
                 return res.status(200).json({
                     success: true,
                     message: "Seller Register Successfully!",
-                    id:  newSeller._id,
                 });
             }
             else{
@@ -54,7 +59,13 @@ module.exports.login = async function(req,res){
             return res.status(200).json({
                 success: true,
                 message: "Sign in successfully",
-                id:  seller._id
+                user: {
+                    token: jwt.sign(seller.toJSON(), "rentingwebsite", {
+                        expiresIn: 100000000,
+                      }),
+                      id:  seller._id,
+                      name: seller.name
+                },
             });
         }
     }catch (err) {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../Action/auth';
+import { isToken } from '../../helpers/utils';
 import { Redirect } from 'react-router-dom';
 import './seller.css';
 
@@ -10,10 +11,10 @@ class header extends Component {
     }
     handleLogout = () =>{
         this.props.dispatch(logoutUser());
-        
     }
     render() {
-        const { isLoggedin } = this.props.auth;
+        let { isLoggedin } = this.props.auth;
+        isLoggedin = (isLoggedin || isToken())
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a className="navbar-brand nav-heading ml-5" href="/">

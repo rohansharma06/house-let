@@ -14,3 +14,11 @@ export function getFormBody(params) {
   
     return formBody.join('&'); //-- user%20name=abc&password=abc
   }
+
+  export function isToken(){
+    if(localStorage.getItem('token')){
+      return true;
+    }else{
+      return false;
+    }
+  }
