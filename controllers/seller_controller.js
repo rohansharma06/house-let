@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 
 module.exports.register = async function(req,res){
     try {
+        // console.log(req.body);
         if (!req.body.email || !req.body.name || !req.body.password || !req.body.confirmPassword){
             return res.status(404).json({
                 message: "Enter valid text"
@@ -18,13 +19,17 @@ module.exports.register = async function(req,res){
                     password: hash
                 });
                 newSeller.save();
+                console.log('newseller',newSeller);
                 return res.status(200).json({
+                    success: true,
                     message: "Seller Register Successfully!",
+                    id:  newSeller._id,
                 });
             }
             else{
-                return res.status(200).json({
-                    message: "Already exist",
+                return res.status(208).json({
+                    success: false,
+                    message: "User already exist",
                 }); 
             }
         }
@@ -38,22 +43,24 @@ module.exports.register = async function(req,res){
 
 module.exports.login = async function(req,res){
     try {
-        console.log(req.body);
-        let seller = await Seller.findOne({email: req.body.email})
-        console.log(seller.email);
-        if(!seller){
-            return res.status(422).json({
+        let seller = await Seller.findOne({email: req.body.email});
+
+        if(!seller || !bcrypt.compareSync(req.body.password, seller.password)){
+            return res.status(404).json({
+                success: false,
                 message: "Invalid Username/Password",
             });
         }else{
             return res.status(200).json({
-                message: "Sign in successfully, here is your token, please keep it safe",
-                Seller: { seller }
+                success: true,
+                message: "Sign in successfully",
+                id:  seller._id
             });
         }
     }catch (err) {
         return res.status(500).json({
           message: "Internal Server Error",
+          err: err
         });
     }
 }
