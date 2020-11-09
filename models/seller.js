@@ -15,7 +15,13 @@ const sellerSchema = new mongoose.Schema(
         password: {
             type: String,
             required: true
-        }
+        },
+        properties: [
+            {
+                type:mongoose.Schema.Types.ObjectId,
+                ref:"Property",
+            }
+        ],
     },{
         timestamps: true
     }

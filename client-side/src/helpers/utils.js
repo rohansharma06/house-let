@@ -22,3 +22,7 @@ export function getFormBody(params) {
       return false;
     }
   }
+
+  export function  getAuthTokenFromLocalStorage(){
+    return localStorage.getItem('token');
+  }

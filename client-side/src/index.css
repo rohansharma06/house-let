@@ -54,6 +54,9 @@ code {
 .bg-black{
   background-color: black;
 }
+.bg-red{
+  color: red;
+}
 .text-white{
   color: white;
 }
