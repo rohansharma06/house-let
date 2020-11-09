@@ -3,16 +3,23 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { isToken } from '../../helpers/utils';
 import { Header,AddProperty,Allproperties } from './index';
+import { fetchProperty } from '../../Action/property';
 
 class home extends Component {
     constructor(props){
         super(props)
     }
-    componentDidUpdate(){
-       
+    componentDidMount(){
+       this.props.dispatch(fetchProperty());
     }
+    // componentDidUpdate(prevProps){
+    //     console.log(prevProps.isadd,';',this.props.isadd);
+    // }
+
     render() {
-        let { isLoggedin} = this.props.auth;
+        let { isLoggedin } = this.props.auth;
+        const { allproperty } = this.props.isadd;
+        // console.log('length:',allproperty);
         isLoggedin = (isLoggedin || isToken());
         if(!isLoggedin){
             return <Redirect to='/admin/login' />;
@@ -21,9 +28,18 @@ class home extends Component {
             <div>
                 <Header />
                 <AddProperty />
-                <div className="display-properties">
-                    <Allproperties />
+                { !allproperty ? ( <div className="display-properties"> <h1>No Dtaa</h1> </div>) : (
+                    <div className="display-properties">
+                    {allproperty.map((data) => (
+                        <Allproperties property={data} key={data._id} />
+                    ))}
                 </div>
+                )}
+                {allproperty.length==0 &&
+                    <div className="display-properties">
+                        <h1>Add properties!</h1>
+                    </div>
+                }
                 
             </div>
         );
@@ -33,6 +49,7 @@ class home extends Component {
 function mapStateToProps(state) {
     return {
       auth: state.auth,
+      isadd: state.isadd,
     };
   }
 export default connect(mapStateToProps)(home);
