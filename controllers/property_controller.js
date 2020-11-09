@@ -27,3 +27,22 @@ module.exports.create = async function(req,res){
         })
     }
 }
+
+module.exports.fetchproperty = async function(req,res){
+    try {
+        let user = req.user.id;
+        let data = await Seller.findById(user)
+        .sort('-createdAt')
+        .populate('properties')
+
+        return res.status(200).json({
+            success: true,
+            Property: data.properties,
+        })
+
+    }catch{
+        return res.status(500).json({
+            message: "Server Error",
+        }); 
+    }
+}
