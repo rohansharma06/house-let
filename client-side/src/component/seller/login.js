@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Header } from './index';
 import { adminLogin } from '../../Action/auth';
 import { Redirect } from 'react-router-dom';
+import { isToken } from '../../helpers/utils';
 
 class Login extends Component {
     constructor(props){
@@ -34,7 +35,7 @@ class Login extends Component {
     render() {
         const { error, inProgress, isLoggedin } = this.props.auth;
         const { from } = this.props.location.state || { from: { pathname: '/' } };
-        if (isLoggedin) {
+        if (isLoggedin || isToken()) {
             return <Redirect to='/admin/home' />;
         }
         return (
