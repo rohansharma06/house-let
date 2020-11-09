@@ -3,8 +3,9 @@ import{
     ADD_PROPERTY_SUCCESS,
     ADD_PROPERTY_FAILED,
     FETCH_PROPERTY,
+    FETCH_ALL_PROPERTY,
 } from './actionType';
-
+import { data as propertyList } from '../component/buyer/data';
 
 import { APIUrls } from '../helpers/urls';
 import { getFormBody,getAuthTokenFromLocalStorage } from '../helpers/utils';
@@ -77,6 +78,36 @@ export function fetchProperty(){
                 dispatch(fetchPropertySuccess(data.Property));
             }
             
+        })
+    }
+}
+
+
+export function allPropertySuccess(data){
+    return{
+        type: FETCH_ALL_PROPERTY,
+        data
+    }
+}
+
+export function fetchAllProperty(){
+    return(dispatch) => {
+        const url = APIUrls.fetchAllproperty();
+        fetch(url,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded', 
+            }
+        })
+        .then((response) => response.json())
+        .then(data => {
+            if(data.success){
+                // console.log('fetchProperty:',data.property[0]);
+                propertyList.length = 0;
+                propertyList.push(...data.property);
+                dispatch(allPropertySuccess(data.property));
+                return;
+            }
         })
     }
 }
