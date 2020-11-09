@@ -43,7 +43,7 @@ export function addproperty(name,city,rent,phone,bhk,description){
         })
         .then((response) => response.json())
         .then(data => {
-            console.log('add data success',data);
+            // console.log('add data success',data);
             if(data.success){
                 dispatch(addPropertySuccess(data.message));
                 return;
@@ -74,7 +74,7 @@ export function fetchProperty(){
         .then((response) => response.json())
         .then(data => {
             if(data.success){
-                console.log('fetchProperty:',data);
+                // console.log('fetchProperty:',data);
                 dispatch(fetchPropertySuccess(data.Property));
             }
             

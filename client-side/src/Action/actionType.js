@@ -24,3 +24,13 @@ export const FETCH_PROPERTY = 'FETCH_PROPERTY';
 //-- ACTIONS FOR USER
 
 export const FETCH_ALL_PROPERTY = 'FETCH_ALL_PROPERTY';
+
+//login action type
+export const USER_LOGIN_START = 'USER_LOGIN_START';
+export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
+export const USER_LOGIN_FAILED = 'USER_LOGIN_FAILED';
+
+//signup action type
+export const USER_SIGNUP_START = 'USER_SIGNUP_START';
+export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS';
+export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED';

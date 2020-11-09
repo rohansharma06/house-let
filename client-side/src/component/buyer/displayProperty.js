@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { isUserToken } from '../../helpers/utils';
 
 class allProperties extends Component {
     constructor(props) {
@@ -17,7 +18,11 @@ class allProperties extends Component {
                     </p>
                     <p className="card-text"> <span className="bg-blue">Contact No</span>: {phone}</p>
                     <p className="card-description" style={{fontSize:'13px'}}>{description}</p>
+
+                    {isUserToken() && <a href="#" className="btn btn-primary">Apply</a> }
+                    
                 </div>
+                
             </div>
                 
             

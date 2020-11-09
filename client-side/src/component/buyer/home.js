@@ -4,6 +4,14 @@ import { Header,DisplayProperty } from './';
 import { fetchAllProperty,allPropertySuccess } from '../../Action/property';
 import { data as propertyList } from './data';
 import { isToken } from '../../helpers/utils';
+import { userLogin,userSignup } from './';
+
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Redirect,
+} from 'react-router-dom';
 
 class Home extends Component {
     constructor(props){
@@ -81,7 +89,7 @@ class Home extends Component {
                         <input type="number" className="form-control" id="inputPassword2" placeholder="Rent" onChange={(e) => this.handleInputChange('rent',e.target.value)} value={this.state.rent} />
                     </div>
                     {isfilterapply ? (<i className="fa fa-close ml-3" style={{fontSize:"30px",color:"red"}} onClick={this.removefilter}></i>) : 
-                     ( <button type="submit" className="btn btn-primary" onClick={this.applyFilter}>Apply</button>) 
+                    ( <button type="submit" className="btn btn-primary" onClick={this.applyFilter}>Apply</button>) 
                     }
                     
                     
@@ -94,6 +102,7 @@ class Home extends Component {
                     </div>
                 )}
             </div>
+            
         );
     }
 }

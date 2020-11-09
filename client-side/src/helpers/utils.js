@@ -22,7 +22,17 @@ export function getFormBody(params) {
       return false;
     }
   }
+  export function isUserToken(){
+    if(localStorage.getItem('usertoken')){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
   export function  getAuthTokenFromLocalStorage(){
     return localStorage.getItem('token');
+  }
+  export function  getUserTokenFromLocalStorage(){
+    return localStorage.getItem('usertoken');
   }

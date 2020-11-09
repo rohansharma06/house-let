@@ -86,9 +86,14 @@ code {
   cursor: pointer;
 }
 
+.success-dailog{
+  background-color: #46b346;
+  color: white;
+}
+
 /* ---- common css */
 .bg-black{
-  background-color: black;
+  background-color: rgb(65, 22, 22);
 }
 .bg-red{
   color: red;

@@ -5,5 +5,7 @@ export const APIUrls ={
     adminSignup: () => `${API_ROOT}/admin/register`,
     addproperty: () => `${API_ROOT}/admin/addproperty`,
     fetchproperty: () => `${API_ROOT}/admin/allproperty`,
-    fetchAllproperty: () => `${API_ROOT}/user/allproperty`
+    fetchAllproperty: () => `${API_ROOT}/user/allproperty`,
+    userLogin: () => `${API_ROOT}/user/login`,
+    userSignup: () => `${API_ROOT}/user/register`,
 }
