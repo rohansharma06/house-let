@@ -19,7 +19,7 @@ const sellerSchema = new mongoose.Schema(
         properties: [
             {
                 type:mongoose.Schema.Types.ObjectId,
-                ref:"Property",
+                ref:'Property',
             }
         ],
     },{
