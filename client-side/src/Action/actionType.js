@@ -19,3 +19,8 @@ export const ADD_PROPERTY_FAILED = 'ADD_PROPERTY_FAILED';
 
 //fetch properties of user
 export const FETCH_PROPERTY = 'FETCH_PROPERTY';
+
+
+//-- ACTIONS FOR USER
+
+export const FETCH_ALL_PROPERTY = 'FETCH_ALL_PROPERTY';
