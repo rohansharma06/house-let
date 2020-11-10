@@ -2,7 +2,7 @@
 
 > One stop where you can search house as well as search for Tenant.
 
-# Basic Funcionality
+## Basic Funcionality
 
 - ADMIN [owner of property]
 
@@ -19,7 +19,7 @@
   4. Apply filter on basis of cost,city,bhk.
   5. She his application status
 
-# Folder Structure
+## Folder Structure
 
 .
 
