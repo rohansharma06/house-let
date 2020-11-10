@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/renting_app',{useNewUrlParser: true});
+mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/renting_app',{useNewUrlParser: true});
 
 const db = mongoose.connection;
 
