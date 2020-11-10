@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Landing from './landing';
 import { Login ,Signup,home } from './seller';
-import { Home,userLogin,userSignup } from './buyer';
+import { Home,userLogin,userSignup,profile } from './buyer';
+import {fetchAllProperty} from '../Action/property';
 
 import {
   BrowserRouter as Router,
@@ -12,6 +13,9 @@ import {
 } from 'react-router-dom';
 
 class App extends Component {
+  componentDidMount(){
+    this.props.dispatch(fetchAllProperty());
+  }
   render() {
     const { auth } = this.props;
     return (
@@ -25,6 +29,7 @@ class App extends Component {
             <Route exact path='/user' component={Home} />
             <Route exact path='/user/login' component={userLogin} />
             <Route exact path='/user/signup' component={userSignup} />
+            <Route exact path='/user/profile' component={profile} />
           </Switch>
           
         </div>
