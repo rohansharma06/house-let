@@ -6,12 +6,6 @@ import { data as propertyList } from './data';
 import { isToken } from '../../helpers/utils';
 import { userLogin,userSignup } from './';
 
-import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-    Redirect,
-} from 'react-router-dom';
 
 class Home extends Component {
     constructor(props){
