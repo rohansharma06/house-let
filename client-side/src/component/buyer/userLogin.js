@@ -36,7 +36,7 @@ class userLogin extends Component {
     render() {
         const { error, inProgress, isLoggedin } = this.props.user;
         if(isLoggedin || isUserToken()){
-            return <Redirect to='/user' />;
+            return <Redirect to='/house-let/user' />;
         }
         return (
             <div>

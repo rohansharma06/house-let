@@ -35,7 +35,7 @@ class Signup extends Component {
     render() {
         const { inProgress, error, isSignup } = this.props.auth;
         if (isSignup) {
-            return <Redirect to='/admin/login' />;
+            return <Redirect to='/house-let/admin/login' />;
         }
         return (
             <div>

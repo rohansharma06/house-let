@@ -22,13 +22,13 @@ class home extends Component {
         // console.log('length:',allproperty);
         isLoggedin = (isLoggedin || isToken());
         if(!isLoggedin){
-            return <Redirect to='/admin/login' />;
+            return <Redirect to='/house-let/admin/login' />;
         }
         return (
             <div>
                 <Header />
                 <AddProperty />
-                { !allproperty ? ( <div className="display-properties"> <h1>No Dtaa</h1> </div>) : (
+                { !allproperty ? ( <div className="display-properties"> <h1>No Data</h1> </div>) : (
                     <div className="display-properties">
                     {allproperty.map((data) => (
                         <Allproperties property={data} key={data._id} />

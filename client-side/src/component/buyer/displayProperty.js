@@ -25,7 +25,7 @@ class allProperties extends Component {
         })
         return (
             <div className="card" style={{width: "18rem",margin:"5px 5px 5px 5px",display:"inline-block"}} id={_id}>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQyWmTKjbzc5iD-b9RrkzL7dtGQf_pOxghr4Q&usqp=CAU" className="card-img-top" alt="..." />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQyWmTKjbzc5iD-b9RrkzL7dtGQf_pOxghr4Q&usqp=CAU" className="card-img-top" alt="img" />
                 <div className="card-body">
                     <h5 className="card-title">{name} || <i>{city}</i> </h5>
                     {/* <p className="card-text" style={{lineHeight:"3px"}}> */}

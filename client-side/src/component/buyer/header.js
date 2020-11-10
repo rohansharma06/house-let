@@ -17,17 +17,17 @@ class header extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 {!isUserToken() ? (
-                    <a className="navbar-brand nav-heading ml-5" href="/">
+                    <a className="navbar-brand nav-heading ml-5" href="/house-let/">
                         <i className="fas fa-home icon pr-2"></i> House Let
                     </a>)
-                :(<a className="navbar-brand nav-heading ml-5" href="/user">
+                :(<a className="navbar-brand nav-heading ml-5" href="/house-let/user">
                     <i className="fas fa-home icon pr-2"></i> House Let
                 </a>)}
                 
                 
                 {isUserToken()  && ( 
                         <div className="ml-auto mr-0">
-                            <Link to='/user/profile'>
+                            <Link to='/house-let/user/profile'>
                                 <button type="button" className="btn btn-info mr-5">Profile</button>
                             </Link>
                             <button type="button" className="btn btn-outline-info" onClick={this.handleUserLogout}>Logout</button>
@@ -36,8 +36,8 @@ class header extends Component {
                 }   
                 {!isUserToken() && (
                     <div className="ml-auto mr-0">
-                        <a href='/user/login' type="button" className="btn btn-outline-info mr-5">Login</a>
-                        <a href='/user/signup' type="button" className="btn btn-outline-info">Signup</a>
+                        <a href='/house-let/user/login' type="button" className="btn btn-outline-info mr-5">Login</a>
+                        <a href='/house-let/user/signup' type="button" className="btn btn-outline-info">Signup</a>
                     </div>
                 )}
             </nav>
