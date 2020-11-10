@@ -1,6 +1,6 @@
 # HOUSE-LET
 
-One stop where you can search house as well as search for Tenant.
+> One stop where you can search house as well as search for Tenant.
 
 # Basic Funcionality
 
@@ -18,3 +18,58 @@ One stop where you can search house as well as search for Tenant.
   3. See All properties available
   4. Apply filter on basis of cost,city,bhk.
   5. She his application status
+
+# Folder Structure
+
+.
+
+    ├── client-side
+      ├── public
+          ├── index.html
+          ├── images
+      ├── src
+          ├── Action
+              ├── (contains all actions type and action creators)
+          ├── Component
+              ├── (contains all react component used in website)
+          ├── Helpers
+              ├── (contains different URLs for API call and other userfull data)
+          ├── Reducer
+              ├── (contains all reducers)
+          ├── Store
+              ├── (config react store to keep data)
+          ├── chat.css
+          ├── index.css
+          ├── index.js
+      ├── index.js
+      ├── package.json
+      ├── package-lock.json
+      ├── .gitignore
+
+    ├── config
+        ├── (contain config for mongo and passport)
+    ├── controllers
+        ├──  (contain different controllers)
+    ├── models
+        ├──  (containmodel schema)
+    ├── routes
+        ├──  (contain different routes)
+    ├── index.js
+    ├── package.json
+    ├── .gitignore
+
+.
+
+## Getting Started
+
+1. Clone the project.
+2. Go to folder.
+3. Run following command.
+
+   ```
+   npm install
+
+   ```
+
+4. Run command: `npm start`
+5. Go to https://localhost/3000 to use the application.
