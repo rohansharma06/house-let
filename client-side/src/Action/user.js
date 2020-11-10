@@ -6,6 +6,7 @@ import {
     USER_SIGNUP_FAILED,
     USER_SIGNUP_START,
     USER_SIGNUP_SUCCESS,
+    USER_RENT_APPLY,
     LOG_OUT,
 } from './actionType';
 
@@ -14,6 +15,7 @@ import { getFormBody } from '../helpers/utils';
 
 export function userlogout(){
   localStorage.removeItem('usertoken');
+  localStorage.removeItem('userId');
   return {
     type: LOG_OUT,
   };
@@ -58,6 +60,7 @@ export function userLoginn(email, password) {
           if (data.success) {
             // console.log('login data:', data);
             localStorage.setItem('usertoken', data.user.token);
+            localStorage.setItem('userId', data.user.id);
             dispatch(userLoginSuccess(data.user));
             return;
           }
@@ -114,4 +117,39 @@ export function usersignup(email, password, confirmPassword, name,phone) {
         dispatch(userSignupFailed(data.message));
       });
   };
+}
+
+export function userapplyrentSuccess() {
+  return {
+      type: USER_RENT_APPLY,
+  };
+}
+
+export function userapplyrent(propertyID){
+  // const userID = localStorage.getItem('userId');
+  // console.log(userID,propertyID._id);
+  return(dispatch) => {
+    const url = APIUrls.userRentApply();
+    const userID = localStorage.getItem('userId');
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: getFormBody({
+        userID: localStorage.getItem('userId'),
+        propertyID:propertyID._id
+      }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if(data.success){
+        // console.log(data);
+        dispatch(userapplyrentSuccess());
+        location.reload();
+        return;
+      }
+     
+    })
+  }
 }
