@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { isUserToken } from '../../helpers/utils';
 import { userlogout } from '../../Action/user';
+import { Link, Redirect } from 'react-router-dom';
 
 class header extends Component {
     constructor(props){
@@ -26,7 +27,9 @@ class header extends Component {
                 
                 {isUserToken()  && ( 
                         <div className="ml-auto mr-0">
-                            <button type="button" className="btn btn-info mr-5">Profile</button>
+                            <Link to='/user/profile'>
+                                <button type="button" className="btn btn-info mr-5">Profile</button>
+                            </Link>
                             <button type="button" className="btn btn-outline-info" onClick={this.handleUserLogout}>Logout</button>
                         </div>
                     )
