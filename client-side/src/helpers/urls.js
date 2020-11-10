@@ -1,4 +1,4 @@
-const API_ROOT = 'http://localhost:8000';
+const API_ROOT = 'https://house-let.herokuapp.com';
 
 export const APIUrls ={
     adminLogin: () => `${API_ROOT}/admin/login`,

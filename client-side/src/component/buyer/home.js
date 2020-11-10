@@ -31,20 +31,20 @@ class Home extends Component {
         const { bhk,rent,city } = this.state;
         let property=[];
         if(rent){
-            property = propertyList.filter(item => item.rent == rent);
+            property = propertyList.filter(item => item.rent <= rent);
         }else if(city){
             property = propertyList.filter(item => item.city == city);
         }else if(bhk){
             property = propertyList.filter(item => item.bhk == bhk);
         }
         else if(bhk && rent && city){
-            property = propertyList.filter(item => item.bhk == bhk && item.city == city && item.rent == rent);
+            property = propertyList.filter(item => item.bhk == bhk && item.city == city && item.rent <= rent);
         }else if(bhk && rent){
-            property = propertyList.filter(item => item.bhk == bhk && item.rent == rent);
+            property = propertyList.filter(item => item.bhk == bhk && item.rent <= rent);
         }else if(bhk && city){
             property = propertyList.filter(item => item.bhk == bhk && item.city == city);
         }else{
-            property = propertyList.filter(item => item.rent == rent && item.city == city);
+            property = propertyList.filter(item => item.rent <= rent && item.city == city);
         }
         this.setState({
             isfilterapply:true,
