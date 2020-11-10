@@ -4,6 +4,7 @@ import Landing from './landing';
 import { Login ,Signup,home,SellerProfile } from './seller';
 import { Home,userLogin,userSignup,profile } from './buyer';
 import {fetchAllProperty} from '../Action/property';
+import sellerprofile from './seller/sellerprofile';
 
 import {
   BrowserRouter as Router,
@@ -11,7 +12,7 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
-import sellerprofile from './seller/sellerprofile';
+
 
 const startURL = "/house-let";
 
@@ -29,7 +30,7 @@ class App extends Component {
             <Route exact path={startURL+'/admin/login'} component={Login} />
             <Route exact path={startURL+'/admin/signup'} component={Signup} />
             <Route exact path={startURL+'/admin/home'} component={home} />
-            <Route exact path={'/admin/profile:id'} component={sellerprofile} />
+            <Route exact path='/house-let/admin/profile:id' component={sellerprofile} />
 
             <Route exact path={startURL+'/user'} component={Home} />
             <Route exact path={startURL+'/user/login'} component={userLogin} />
