@@ -3,6 +3,7 @@ const Property = require('../models/property');
 const Seller = require('../models//seller');
 const Buyer = require('../models/buyer');
 const Rent = require('../models/rent');
+const { populate } = require('../models/property');
 
 module.exports.create = async function(req,res){
     try {
@@ -35,8 +36,15 @@ module.exports.fetchproperty = async function(req,res){
     try {
         let user = req.user.id;
         let data = await Seller.findById(user)
-        .sort('-createdAt')
-        .populate('properties')
+        .populate({
+            path :'properties',
+            populate:({
+                path:'rentApply',
+                populate:({
+                    path:'buyer',
+                })
+            })
+        })
 
         return res.status(200).json({
             success: true,
@@ -96,6 +104,41 @@ module.exports.applyForRent = async function(req,res){
             // buyer_id,
         })
 
+    }catch(err){
+        return res.status(500).json({
+            message: "Server Error",
+        }); 
+    }
+}
+
+module.exports.fetchpropertydetails = async function(req,res){
+    try{
+        const property = await Property.findById(req.body.propertyID)
+        .populate({
+            path:'rentApply',
+            populate:({
+                path:'buyer',
+            })
+        })
+
+        return res.status(200).json({
+            success: true,
+            property,
+        })
+    }catch(err){
+        return res.status(500).json({
+            message: "Server Error",
+        }); 
+    }
+}
+
+module.exports.changeStatus = async function(req,res){
+    try{
+        let status = req.body.status;
+        let staus = await Rent.findByIdAndUpdate(req.body.id, {$set: {status: status}});
+        return res.status(200).json({
+            success: true,
+        })
     }catch(err){
         return res.status(500).json({
             message: "Server Error",

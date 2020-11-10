@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Landing from './landing';
-import { Login ,Signup,home } from './seller';
+import { Login ,Signup,home,SellerProfile } from './seller';
 import { Home,userLogin,userSignup,profile } from './buyer';
 import {fetchAllProperty} from '../Action/property';
 
@@ -11,6 +11,7 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
+import sellerprofile from './seller/sellerprofile';
 
 class App extends Component {
   componentDidMount(){
@@ -26,6 +27,8 @@ class App extends Component {
             <Route exact path='/admin/login' component={Login} />
             <Route exact path='/admin/signup' component={Signup} />
             <Route exact path='/admin/home' component={home} />
+            <Route exact path='/admin/profile:id' component={sellerprofile} />
+
             <Route exact path='/user' component={Home} />
             <Route exact path='/user/login' component={userLogin} />
             <Route exact path='/user/signup' component={userSignup} />

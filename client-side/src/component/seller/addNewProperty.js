@@ -61,7 +61,7 @@ class addNewProperty extends Component {
                             </button>
                         </div>
                         <div className="modal-body">
-                        {message && <div className="alert error-dailog">{message}</div>}
+                        {message && <div className="alert success-dailog">{message}</div>}
                             <form>
                                 <div className="field">
                                     <input

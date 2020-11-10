@@ -4,6 +4,9 @@ import Signup from './signup';
 import home from './home';
 import AddProperty from './addNewProperty';
 import Allproperties from './allProperties';
+import SellerProfile from './sellerprofile';
+import PropertyCard from './propertyCard';
+
 export {
     Header,
     Login,
@@ -11,4 +14,6 @@ export {
     home,
     AddProperty,
     Allproperties,
+    SellerProfile,
+    PropertyCard,
 }

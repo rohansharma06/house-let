@@ -16,6 +16,7 @@ class profile extends Component {
         return (
             <div>
                 <Header />
+                <h1 className="text-white p-2" style={{marginLeft:"30vw"}}>Applied Houses</h1>
                 {propertyList.length <=0 ? (<div className="loader"></div>) : (
                     <div className="display-properties">
                         {propertyList.map((data) => (

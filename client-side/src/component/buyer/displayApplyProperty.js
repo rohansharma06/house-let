@@ -17,11 +17,12 @@ class allProperties extends Component {
         // console.log('rent:',rentApply[0]);
         let isapplied=false;
         let status=0;
+        // console.log(this.props.property);
         rentApply.map(data=>{
             // console.log('rent:',data.buyer._id);
             if(data.buyer._id == localStorage.getItem('userId')){
                 isapplied = true;
-                status = status;
+                status = data.status;
             }
         })
         return (
@@ -37,9 +38,9 @@ class allProperties extends Component {
                          </p>
                          <p className="card-text"> <span className="bg-blue">Contact No</span>: {phone}</p>
                          <p className="card-description" style={{fontSize:'13px'}}>{description}</p>
-                        {status == 0 && <a  className="btn btn-primary" onClick={() => this.handleapply({_id})}>No Update</a> }
-                        {status == 1 && <a  className="btn btn-success" onClick={() => this.handleapply({_id})}>Accept</a> }
-                        {status == 2 && <a  className="btn btn-danger" onClick={() => this.handleapply({_id})}>Reject</a> }
+                        {status === 0 && <a  className="btn btn-primary" onClick={() => this.handleapply({_id})}>No Update</a> }
+                        {status === 1 && <a  className="btn btn-success" onClick={() => this.handleapply({_id})}>Accept</a> }
+                        {status === 2 && <a  className="btn btn-danger" onClick={() => this.handleapply({_id})}>Reject</a> }
                         
                      </div>
                  </div>

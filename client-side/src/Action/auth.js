@@ -19,6 +19,7 @@ import { getFormBody } from '../helpers/utils';
 //--loout user
 export function logoutUser() {
   localStorage.removeItem('token');
+  location.href='/admin/login'
   return {
     type: LOG_OUT,
   };

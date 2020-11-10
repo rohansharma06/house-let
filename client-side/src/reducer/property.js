@@ -3,12 +3,14 @@ import{
     ADD_PROPERTY_SUCCESS,
     ADD_PROPERTY_FAILED,
     FETCH_PROPERTY,
+    FETCH_PROPERTY_DETAILS,
 } from '../Action/actionType';
 
 const initialPropertyState = {
     allproperty:[],
     message: null,
     inProgress: false,
+    selectedProperty:{}
 };
 
 export default function auth(state = initialPropertyState, action) {
@@ -33,6 +35,11 @@ export default function auth(state = initialPropertyState, action) {
             return{
                 ...state,
                 allproperty: action.data,
+            }
+        case FETCH_PROPERTY_DETAILS:
+            return {
+                ...state,
+                selectedProperty : action.data,
             }
         default:
             return state;

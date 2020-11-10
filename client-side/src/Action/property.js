@@ -4,11 +4,15 @@ import{
     ADD_PROPERTY_FAILED,
     FETCH_PROPERTY,
     FETCH_ALL_PROPERTY,
+    FETCH_PROPERTY_DETAILS,
+    ACCEPT_PROPERTY_APPLICATION,
+    DECLINE_PROPERTY_APPLICATION,
 } from './actionType';
 import { data as propertyList } from '../component/buyer/data';
 
 import { APIUrls } from '../helpers/urls';
 import { getFormBody,getAuthTokenFromLocalStorage } from '../helpers/utils';
+
 
 
 export function startAddProperty(){
@@ -46,6 +50,7 @@ export function addproperty(name,city,rent,phone,bhk,description){
             // console.log('add data success',data);
             if(data.success){
                 dispatch(addPropertySuccess(data.message));
+                location.reload();
                 return;
             }
             dispatch(addPropertyFailed('Server Error! Try again'));
@@ -108,6 +113,57 @@ export function fetchAllProperty(){
                 dispatch(allPropertySuccess(data.property));
                 return;
             }
+        })
+    }
+}
+
+export function fetchdetailsSuccess(data){
+    return {
+        type: FETCH_PROPERTY_DETAILS,
+        data
+    }
+}
+export function fetchPropertyDetails(){
+    let proerty_id = window.location.href.split(':').reverse()[0];
+    return(dispatch) => {
+        const url = APIUrls.fetchPropertyDetails();
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                Authorization: `Bearer ${getAuthTokenFromLocalStorage()}`, 
+            },
+            body: getFormBody({propertyID:proerty_id})
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            if(data.success){
+                dispatch(fetchdetailsSuccess(data.property));
+                return;
+            }
+            // console.log(data);
+        })
+    }
+}
+
+
+
+export function acceptApplication(id,status){
+    return(dispatch) => {
+        const url = APIUrls.propertyStatus();
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                Authorization: `Bearer ${getAuthTokenFromLocalStorage()}`, 
+            },
+            body: getFormBody({id,status})
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            location.reload();
+            return;
         })
     }
 }
