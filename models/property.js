@@ -28,12 +28,10 @@ const propertySchema = new mongoose.Schema(
         rentApply:[
             {
                 type:mongoose.Schema.Types.ObjectId,
-                ref: 'Buyer' ,
-                status: {
-                    type: Number,
-                }
+                ref: 'Rent' ,
+               
             }
-        ]
+        ],
     },
     {
         timestamps: true

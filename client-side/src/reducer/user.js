@@ -7,6 +7,7 @@ import {
     USER_SIGNUP_FAILED,
     USER_SIGNUP_START,
     USER_SIGNUP_SUCCESS,
+    USER_RENT_APPLY,
 } from '../Action/actionType';
 
 const initialAuthState = {
@@ -16,6 +17,7 @@ const initialAuthState = {
     error: null,
     buyer_data: {},
     isSignup:false,
+    applyRent:false,
 }
 
 export default function auth(state = initialAuthState, action) {
@@ -57,6 +59,11 @@ export default function auth(state = initialAuthState, action) {
                 ...state,
                 isLoggedin: false,
                 buyer_data: {},
+            }
+        case USER_RENT_APPLY:
+            return {
+                ...state,
+                applyRent:true,
             }
         default:
             return state;

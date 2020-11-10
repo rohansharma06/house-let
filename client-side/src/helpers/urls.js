@@ -8,4 +8,5 @@ export const APIUrls ={
     fetchAllproperty: () => `${API_ROOT}/user/allproperty`,
     userLogin: () => `${API_ROOT}/user/login`,
     userSignup: () => `${API_ROOT}/user/register`,
+    userRentApply: () => `${API_ROOT}/user/applyrent`,
 }

@@ -1,5 +1,8 @@
+// @ts-nocheck
 const Property = require('../models/property');
 const Seller = require('../models//seller');
+const Buyer = require('../models/buyer');
+const Rent = require('../models/rent');
 
 module.exports.create = async function(req,res){
     try {
@@ -40,7 +43,7 @@ module.exports.fetchproperty = async function(req,res){
             Property: data.properties,
         })
 
-    }catch{
+    }catch(err){
         return res.status(500).json({
             message: "Server Error",
         }); 
@@ -50,15 +53,52 @@ module.exports.fetchproperty = async function(req,res){
 module.exports.fetchAllProperty = async function(req,res){
     try{
         const property = await Property.find({})
-        .sort('--createdAt');
+        .populate({
+            path:'rentApply',
+            populate:({
+                path:'buyer',
+            })
+        })
 
         return res.status(200).json({
             success: true,
             property,
         })
-    }catch{
+    }catch(err){
         return res.status(500).json({
             message: "Server Error",
         }); 
     }
 } 
+
+module.exports.applyForRent = async function(req,res){
+    try {
+        let property_id = req.body.propertyID;
+        let buyer_id = req.body.userID;
+        // console.log(property_id,buyer_id);
+        let newRentApply = await Rent.create({
+            buyer: buyer_id,
+            property: property_id,
+            status: 0,            
+        })
+        
+        let buyer = await Buyer.findById(buyer_id);
+        buyer.properties.push(property_id);
+        buyer.save();
+
+        let property = await Property.findById(property_id);
+        property.rentApply.push(newRentApply._id);
+        property.save();
+
+        return res.status(200).json({
+            success: true,
+            // property_id,
+            // buyer_id,
+        })
+
+    }catch(err){
+        return res.status(500).json({
+            message: "Server Error",
+        }); 
+    }
+}

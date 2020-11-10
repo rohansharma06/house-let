@@ -17,9 +17,16 @@ class header extends Component {
         isLoggedin = (isLoggedin || isToken())
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a className="navbar-brand nav-heading ml-5" href="/admin/login">
+                {!isLoggedin ? (
+                    <a className="navbar-brand nav-heading ml-5" href="/">
+                        <i className="fas fa-home icon pr-2"></i> House Let
+                    </a>)
+                :(<a className="navbar-brand nav-heading ml-5" href="/admin/login">
                     <i className="fas fa-home icon pr-2"></i> House Let
-                </a>
+                </a>)}
+                {/* <a className="navbar-brand nav-heading ml-5" href="/admin/login">
+                    <i className="fas fa-home icon pr-2"></i> House Let
+                </a> */}
                 <div className="ml-auto mr-0">
                     {isLoggedin ? (<button type="button" className="btn btn-outline-info" onClick={this.handleLogout}>Logout</button>) : (
                         <div>
