@@ -6,6 +6,8 @@ const path = require('path');
 
 const db = require("./config/mongoose");
 
+db();
+
 const bodyParser = require("body-parser");
 
 //---- require passport ans jwt strategy for authentication
@@ -27,13 +29,13 @@ app.use(passport.initialize());
 //--- use express router
 app.use('/', require('./routes'));
 
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static( 'client-side/build'));
+// if(process.env.NODE_ENV === 'production'){
+//     app.use(express.static( 'client-side/build'));
 
-    app.get('*',(req,res) => {
-        res.sendFile(path.join(__dirname, 'client-side','build','index.html'));
-    })
-}
+//     app.get('*',(req,res) => {
+//         res.sendFile(path.join(__dirname, 'client-side','build','index.html'));
+//     })
+// }
 
 app.listen(port, function(err){
     if(err){

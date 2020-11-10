@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "heroku-postbuild": "cd client-side && npm install && npm run build"
+    "start": "set NODE_ENV=development && nodemon index.js",
+    "start-prod": "set NODE_ENV=production && nodemon index.js"
   },
   "author": "\"Rohan Sharma\"",
   "license": "ISC",
@@ -23,5 +23,8 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0"
+  },
+  "engines": {
+    "node": "v12.16.3"
   }
 }
