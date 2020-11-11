@@ -1,23 +1,24 @@
 # HOUSE-LET
 
-> One stop where you can search house as well as search for Tenant.
+> - One stop where you can search house as well as search for Tenant.
+> - Hosted at: [house-let](https://houselet-395a2.firebaseapp.com/)
 
 ## Basic Funcionality
 
 - ADMIN [owner of property]
 
-  1. Loging => (email,password)
-  2. Signup => (name,email,phone no,password)
-  3. Add his property => (name,rent,bhk,description,city)
+  1. [Loging] => (email,password)
+  2. [Signup] => (name,email,phone no,password)
+  3. [Add his property[] => (name,rent,bhk,description,city)
   4. See who applied in his property.
   5. Accept or reject Application.
 
 - USER [people who apply for rent]
-  1. Loging => (email,password)
-  2. Signup => (name,email,phone no,password)
-  3. See All properties available
+  1. [Loging] => (email,password)
+  2. [Signup] => (name,email,phone no,password)
+  3. See All properties available.
   4. Apply filter on basis of cost,city,bhk.
-  5. She his application status
+  5. See his application status.
 
 ## Folder Structure
 
@@ -62,14 +63,10 @@
 
 ## Getting Started
 
-1. Clone the project.
+1. Clone the project: [clone](https://github.com/rohansharma06/house-let.git)
 2. Go to folder.
-3. Run following command.
-
-   ```
-   npm install
-
-   ```
-
-4. Run command: `npm start`
-5. Go to https://localhost/3000 to use the application.
+3. Run command `npm install`
+4. Run command: `cd client-side`
+5. Run command: `npm start`
+6. Go to https://localhost/3000 to use the application.
+7. Happy Learning ❤️
