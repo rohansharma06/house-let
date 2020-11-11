@@ -22,7 +22,7 @@ class home extends Component {
         // console.log('length:',allproperty);
         isLoggedin = (isLoggedin || isToken());
         if(!isLoggedin){
-            return <Redirect to='/house-let/admin/login' />;
+            return <Redirect to='/admin/login' />;
         }
         return (
             <div>

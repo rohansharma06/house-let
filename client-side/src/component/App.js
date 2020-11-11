@@ -14,8 +14,6 @@ import {
 } from 'react-router-dom';
 
 
-const startURL = "/house-let";
-
 class App extends Component {
   componentDidMount(){
     this.props.dispatch(fetchAllProperty());
@@ -26,16 +24,16 @@ class App extends Component {
       <Router>
         <div>
           <Switch>
-            <Route exact path={startURL + '/'} component={Landing} />
-            <Route exact path={startURL+'/admin/login'} component={Login} />
-            <Route exact path={startURL+'/admin/signup'} component={Signup} />
-            <Route exact path={startURL+'/admin/home'} component={home} />
-            <Route exact path='/house-let/admin/profile:id' component={sellerprofile} />
+            <Route exact path='/' component={Landing} />
+            <Route exact path='/admin/login' component={Login} />
+            <Route exact path='/admin/signup' component={Signup} />
+            <Route exact path='/admin/home' component={home} />
+            <Route exact path='/admin/profile:id' component={sellerprofile} />
 
-            <Route exact path={startURL+'/user'} component={Home} />
-            <Route exact path={startURL+'/user/login'} component={userLogin} />
-            <Route exact path={startURL+'/user/signup'} component={userSignup} />
-            <Route exact path={startURL+'/user/profile'} component={profile} />
+            <Route exact path='/user' component={Home} />
+            <Route exact path='/user/login' component={userLogin} />
+            <Route exact path='/user/signup' component={userSignup} />
+            <Route exact path='/user/profile' component={profile} />
           </Switch>
           
         </div>

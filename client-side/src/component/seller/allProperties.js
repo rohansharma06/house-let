@@ -22,7 +22,7 @@ class allProperties extends Component {
                     <p className="card-description" style={{fontSize:'13px'}}>{description}</p>
                     
                     
-                    <a href={"/house-let/admin/profile:"+_id} className="btn btn-primary">Vew Applications</a>
+                    <a href={"/admin/profile:"+_id} className="btn btn-primary">Vew Applications</a>
                 </div>
             </div>
                 

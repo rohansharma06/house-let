@@ -35,7 +35,7 @@ class Login extends Component {
     render() {
         const { error, inProgress, isLoggedin } = this.props.auth;
         if (isLoggedin || isToken()) {
-            return <Redirect to='/house-let/admin/home' />;
+            return <Redirect to='/admin/home' />;
         }
         return (
             <div>

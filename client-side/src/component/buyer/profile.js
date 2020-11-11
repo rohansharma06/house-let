@@ -10,7 +10,7 @@ class profile extends Component {
     render() {
         // console.log('profile:',this.props.user);
         if(!isUserToken()){
-            return <Redirect to='/house-let/user' />;
+            return <Redirect to='/user' />;
         }
         
         return (
